@@ -1,0 +1,33 @@
+<ng-container>
+  <table [attr.id]="getCompId('component')" class="ng-shuttle-reorder">
+    <tbody>
+      <tr>
+        <td class="sr-selector-label">{{availableOptionsLabel}}</td>
+        <td></td>
+        <td class="sr-selector-label">{{selectedOptionsLabel}}</td>
+        <td *ngIf="!hideReorderControls"></td>
+      </tr>
+      <tr>
+        <td>
+          <div [attr.id]="getCompId('available-options')" class="sr-selector available-options" (click)="handleSelectorClick($event)">
+            <div class="sr-option" *ngFor="let o of availableOptions" [attr.data-value]="o.value" (click)="doSelect($event)">{{o.label}}</div>
+          </div>
+        </td>
+        <td class="shuttle-reorder-col-btn">
+          <img src="assets/images/shuttle-reorder-btn.svg" class="shuttle-reorder-btn dir-right" [ngClass]="{'disabled':!moveRightEnabled}" (click)="shuttleReorderAction('moveRight')" />
+          <img src="assets/images/shuttle-reorder-btn.svg" class="shuttle-reorder-btn dir-left" [ngClass]="{'disabled':!moveLeftEnabled}" (click)="shuttleReorderAction('moveLeft')" />
+          <input type="text" [attr.id]="getCompId('shuttleInputAndKeyboardHandler')" class="shuttleInputAndKeyboardHandler" tabindex="-1" />
+        </td>
+        <td>
+          <div [attr.id]="getCompId('selected-options')" class="sr-selector selected-options" (click)="handleSelectorClick($event)">
+            <div class="sr-option" *ngFor="let o of selectedOptions" [attr.data-value]="o.value" (click)="doSelect($event)">{{o.label}}</div>
+          </div>
+        </td>
+        <td *ngIf="!hideReorderControls">
+          <img src="assets/images/shuttle-reorder-btn.svg" class="shuttle-reorder-btn dir-up" [ngClass]="{'disabled':!moveUpEnabled}" (click)="shuttleReorderAction('moveUp')" />
+          <img src="assets/images/shuttle-reorder-btn.svg" class="shuttle-reorder-btn dir-down" [ngClass]="{'disabled':!moveDownEnabled}" (click)="shuttleReorderAction('moveDown')" />
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</ng-container>

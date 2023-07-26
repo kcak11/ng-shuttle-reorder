@@ -1,0 +1,74 @@
+table.ng-shuttle-reorder {
+  * {
+    box-sizing: border-box;
+  }
+  tbody {
+    tr {
+      td {
+        font-family: "Noto Sans", sans-serif;
+        font-size: 12px;
+        color: #6e7070;
+        font-weight: bold;
+        line-height: 16px;
+        &.sr-selector-label {
+          text-transform: uppercase;
+        }
+        &.shuttle-reorder-col-btn {
+          padding-left: 10px;
+          padding-right: 10px;
+        }
+        .shuttle-reorder-btn {
+          display: block;
+          margin: 10px;
+          cursor: pointer;
+          &.disabled {
+            opacity: 0.25;
+            cursor: not-allowed;
+          }
+          &.dir-right {
+            transform: rotate(0deg);
+          }
+          &.dir-left {
+            transform: rotate(180deg);
+          }
+          &.dir-up {
+            transform: rotate(-90deg);
+          }
+          &.dir-down {
+            transform: rotate(90deg);
+          }
+        }
+        .sr-selector {
+          background-color: #fff;
+          width: 350px;
+          height: 160px;
+          overflow-x: hidden;
+          overflow-y: auto;
+          font-family: "Noto Sans", sans-serif;
+          color: #4d5050;
+          border: 1px solid #888a8a;
+          outline: none;
+          .sr-option {
+            height: 32px;
+            font-size: 13px;
+            font-weight: normal;
+            padding: 7px 10px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            cursor: default;
+            &.selected {
+              background-color: #b3d7ff;
+              color: #000;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.shuttleInputAndKeyboardHandler {
+  opacity: 0 !important;
+  width: 1px !important;
+  height: 1px !important;
+}
